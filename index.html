@@ -164,32 +164,27 @@
       color: #5b4a3e;
     }
 
-    footer {
-      position: static;
-      bottom: 0;
-      left: 10;
-      right: 10;
-      width: 100vw;
-      background-color: #ece5dc;
-      box-shadow: 0 -1px 10px rgba(0,0,0,0.04);
-      color: #4e4439;
-      padding: 30px 30px;
-      box-sizing: border-box;
-      z-index: 1000;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 0.9em;
-      font-family: 'Playfair Display', serif;
-    }
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 60px;
+  background-color: #ece5dc;
+  box-shadow: 0 -1px 10px rgba(0,0,0,0.04);
+  color: #4e4439;
+  font-size: 0.9em;
+  font-family: 'Arial';
+  gap: 40px;
+}
 
-    footer .info-column {
-      font-family: Arial, Helvetica, sans-serif;
-      flex: 1 1 220px;
-      min-width: 200px;
-      line-height: 1.5em;
-    }
+footer .info-column {
+  flex: 1;
+  text-align: left;
+  min-width: 200px;
+  max-width: 300px;
+  line-height: 1.5em;
+}
+
 
 @media (max-width: 768px) {
   body {
@@ -727,6 +722,7 @@ Para os amigos e familiares que desejarem nos presentear, pedimos com carinho qu
     <div class="info-column">
       <strong>Desenvolvimento:</strong><br>
       Athus Maciel<br>
+      athusandremm@gmail.com
       <br>
       <br>
       <strong>Hospedagem:</strong><br>
@@ -735,7 +731,7 @@ Para os amigos e familiares que desejarem nos presentear, pedimos com carinho qu
 
     <div class="info-column">
       <strong>Termos:</strong><br>
-      © 2025 Athus Maciel.<br>
+      © 2025 Athus Maciel<br>
       Conteúdo elaborado exclusivamente para fins<br>
       pessoais e familiares.
     </div>
