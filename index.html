@@ -192,20 +192,21 @@
 
 @media (max-width: 768px) {
   footer {
-    flex-direction: column;
+    flex-direction: column !important; /* força a coluna */
     gap: 20px;
     padding: 20px;
     font-size: 0.85em;
-    text-align: center;
+    text-align: center !important; /* centraliza texto geral */
   }
 
   footer .info-column {
-    flex: none;
-    min-width: auto;
-    text-align: center;
+    flex: none !important;
+    min-width: auto !important;
+    text-align: center !important; /* centraliza texto individual */
+    margin-left: auto !important;  /* remove margens que atrapalham */
+    margin-right: auto !important;
   }
 }
-
   </style>
 
 </head>
