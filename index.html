@@ -167,18 +167,19 @@
     footer {
       position: static;
       bottom: 0;
-      left: 0;
+      left: 10;
+      right: 10;
       width: 100vw;
       background-color: #ece5dc;
       box-shadow: 0 -1px 10px rgba(0,0,0,0.04);
       color: #4e4439;
-      padding: 30px 40px;
+      padding: 30px 30px;
       box-sizing: border-box;
       z-index: 1000;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 30px;
+      gap: 10px;
       font-size: 0.9em;
       font-family: 'Playfair Display', serif;
     }
@@ -262,7 +263,13 @@
   footer .info-column {
     flex: none;
     min-width: auto;
+    width: 100%;
     text-align: center;
+  }
+
+  footer .info-column strong {
+    display: block;
+    margin-bottom: 0px;
   }
 }
 
@@ -729,8 +736,8 @@ Para os amigos e familiares que desejarem nos presentear, pedimos com carinho qu
     <div class="info-column">
       <strong>Termos:</strong><br>
       © 2025 Athus Maciel.<br>
-      Conteúdo elaborado exclusivamente para fins pessoais<br>
-      e familiares.
+      Conteúdo elaborado exclusivamente para fins<br>
+      pessoais e familiares.
     </div>
   </footer>
 
