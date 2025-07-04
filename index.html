@@ -191,23 +191,81 @@
     }
 
 @media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 30px 20px;
+    margin: 20px auto 80px;
+  }
+
+  .header h1 {
+    font-size: 2.4em;
+  }
+
+  .header h2 {
+    font-size: 1.2em;
+  }
+
+  .header img {
+    width: 180px;
+  }
+
+  .intro, .intro-variada, .closing {
+    font-size: 1em;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .section-title {
+    font-size: 1.4em;
+    margin-top: 40px;
+  }
+
+  .gift {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .gift img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .gift-content h3 {
+    font-size: 1.1em;
+    margin-top: 15px;
+  }
+
+  .gift-content p {
+    font-size: 0.95em;
+  }
+
+  .divider-with-text span {
+    font-size: 1.8em;
+    padding: 0 10px;
+  }
+
   footer {
-    flex-direction: column !important;
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
     font-size: 0.85em;
-    text-align: center !important;
+    text-align: center;
+    align-items: center;
   }
 
   footer .info-column {
-    flex: none !important;
-    min-width: auto !important;
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
+    flex: none;
+    min-width: auto;
+    text-align: center;
   }
 }
+
   </style>
 
 </head>
