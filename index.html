@@ -185,6 +185,22 @@ footer .info-column {
   line-height: 1.5em;
 }
 
+.mobile-hide {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+
+  footer .info-column:not(:last-child) {
+    margin-bottom: 2em; 
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none;
+  }
+}
 
 @media (max-width: 768px) {
   body {
@@ -262,10 +278,19 @@ footer .info-column {
     text-align: center;
   }
 
-  footer .info-column strong {
-    display: block;
-    margin-bottom: 0px;
-  }
+footer .info-column strong,
+footer .info-column b {
+  display: inline;
+  margin-right: 4px;
+  line-height: 1.4em;
+}
+
+footer .info-column br + strong,
+footer .info-column br + b {
+  display: block;
+  margin-top: 20px;
+}
+
 }
 
   </style>
@@ -712,7 +737,7 @@ Para os amigos e familiares que desejarem nos presentear, pedimos com carinho qu
       João Vitor Dourado Matos<br>
       Geovana Vitória Maciel Mendes<br>
       <br>
-      <strong>Contato:</strong><br>
+      <strong>Contato:</strong>
       (61) 9 9291-4441<br>
       douradomatosj@email.com<br>
       (61) 9 9597-0145<br>
@@ -725,7 +750,7 @@ Para os amigos e familiares que desejarem nos presentear, pedimos com carinho qu
       athusandremm@gmail.com
       <br>
       <br>
-      <strong>Hospedagem:</strong><br>
+      <strong>Hospedagem:</strong><br class="mobile-hide">
       GitHub (github.com)
     </div>
 
