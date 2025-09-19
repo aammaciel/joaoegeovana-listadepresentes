@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="site/favicon.ico" type="image/icon-x">
+  <title>Lista de Presentes - João Vitor & Geovana Vitória</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0 20px 20px 20px;
+      background-color: #fdfbf7;
+      color: #3c3b39;
+      background-image: url('site/fundo.png');
+      background-repeat: repeat-y;
+      background-position: top center;
+      font-family: 'Playfair Display', serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 20px auto 140px;
+      background-color: #fffefb;
+      border-radius: 18px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      padding: 60px 40px;
+      position: relative;
+    }
+
+    .renda-superior, .renda-inferior {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .renda-superior {
+      top: 0;
+    }
+    .renda-inferior {
+      bottom: 0;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      color: #484325;
+      margin: 10px 0 10px;
+    }
+    .header h2 {
+      font-size: 1.5em;
+      color: #897e65;
+      font-weight: 400;
+      margin: 0;
+    }
+    .header img {
+      width: 250px;
+      margin-top: 10px;
+    }
+
+    .intro, .closing {
+      font-size: 1em;
+      color: #4a3f36;
+      line-height: 1.9em;
+      margin: 40px auto;
+      text-align: center;
+      background-color: #f8f6f2;
+      padding: 30px;
+      border-left: 6px solid #c7b6a5;
+      border-radius: 8px;
+      max-width: 760px;
+    }
+
+    .intro-variada {
+      font-size: 1em;
+      color: #752222;
+      line-height: 1.9em;
+      margin: 40px auto;
+      text-align: center;
+      background-color: #ffd9d9;
+      padding: 30px;
+      border-left: 6px solid #ff6161;
+      border-radius: 8px;
+      max-width: 760px;
+    }
+
+    .section-title {
+      margin-top: 60px;
+      font-size: 1.7em;
+      text-align: center;
+      color: #5b4a3e;
+      border-bottom: 2px solid #d6c8b7;
+      padding-bottom: 10px;
+    }
+
+    .gift {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #ffffff;
+      border: 1px solid #e5dfd5;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      max-width: 860px;
+    }
+
+    .gift:hover {
+        background-color: #ece5dc;
+        transition: 0.5s;
+    }
+
+    .gift img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      flex-shrink: 0;
+    }
+
+    .gift-content {
+      flex: 1;
+    }
+
+    .gift-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+      color: #5b4a3e;
+    }
+
+    .gift-content p {
+      margin: 0;
+      color: #6b5c4e;
+      font-size: 1em;
+      line-height: 1.6em;
+    }
+
+    .divider-with-text {
+      text-align: center;
+      border-bottom: 2px solid #d6c8b7;
+      line-height: 0.1em;
+      margin: 50px 0 30px;
+      opacity: 0.5;
+    }
+
+    .divider-with-text span {
+      background: #fffefb;
+      padding: 0 20px;
+      font-size: 2.5em;
+      font-family: 'Playfair Display', serif;
+      color: #5b4a3e;
+    }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 60px;
+  background-color: #ece5dc;
+  box-shadow: 0 -1px 10px rgba(0,0,0,0.04);
+  color: #4e4439;
+  font-size: 0.9em;
+  font-family: 'Arial';
+  gap: 40px;
+  border-radius: 15px;
+
+}
+
+footer .info-column {
+  flex: 1;
+  text-align: left;
+  min-width: 200px;
+  max-width: 300px;
+  line-height: 1.5em;
+}
+
+.mobile-hide {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+
+  footer .info-column:not(:last-child) {
+    margin-bottom: 2em; 
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 30px 20px;
+    margin: 20px auto 80px;
+  }
+
+  .header h1 {
+    font-size: 2.4em;
+  }
+
+  .header h2 {
+    font-size: 1.2em;
+  }
+
+  .header img {
+    width: 180px;
+  }
+
+  .intro, .intro-variada, .closing {
+    font-size: 1em;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .section-title {
+    font-size: 1.4em;
+    margin-top: 40px;
+  }
+
+  .gift {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .gift img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .gift-content h3 {
+    font-size: 1.1em;
+    margin-top: 15px;
+  }
+
+  .gift-content p {
+    font-size: 0.95em;
+  }
+
+  .divider-with-text span {
+    font-size: 1.8em;
+    padding: 0 10px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    font-size: 0.85em;
+    text-align: center;
+    align-items: center;
+  }
+
+  footer .info-column {
+    flex: none;
+    min-width: auto;
+    width: 100%;
+    text-align: center;
+  }
+
+footer .info-column strong,
+footer .info-column b {
+  display: inline;
+  margin-right: 4px;
+  line-height: 1.4em;
+}
+
+footer .info-column br + strong,
+footer .info-column br + b {
+  display: block;
+  margin-top: 20px;
+}
+
+}
+
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <img src="site/toppointer.png" class="renda-superior" alt="Renda Superior">
+<img src="site/bottompointer.png" class="renda-inferior" alt="Renda Inferior">
+    <div class="header">
+<div style="text-align: center; margin-top: 10px;">
+  <img src="site/deco1.png" alt="Decoração 1" style="width: 250px;">
+</div>
+  <h1>Lista de Presentes</h1>
+  <h2>João Vitor & Geovana Vitória</h2>
+</div>
+    <div class="intro">
+      Estamos vivendo um momento muito especial e significativo: estamos prestes a dar um dos passos mais importantes de nossas vidas — a construção do nosso lar. Mais do que apenas levantar paredes ou mobiliar um espaço, estamos começando a criar um ambiente cheio de carinho, aconchego, afeto e muitas novas memórias que levaremos para sempre conosco. <br><br>
+      Pensando nisso, montamos com muito cuidado e carinho esta lista de sugestões de presentes, com itens que serão de grande ajuda nesse novo começo. São apenas ideias, pensadas com atenção e gratidão, para tornar essa fase mais prática e cheia de significado.<br><br>
+      No entanto, queremos deixar claro que não há qualquer obrigação. Sinta-se totalmente à vontade para escolher o que quiser — ou mesmo não escolher nada. A sua presença, o seu carinho e o fato de compartilhar esse momento com a gente já são, sem dúvida, os maiores presentes que poderíamos receber.
+    </div>
+
+    <div class="intro-variada">
+<h2 style="text-align: center; color: #b02a2a; font-size: 2em; margin-top: 5px; margin-bottom: 20px;">
+  Atenção!
+</h2>
+
+Para os amigos e familiares que desejarem nos presentear, pedimos com carinho que entrem em contato conosco assim que escolherem o item. Assim conseguimos manter a lista atualizada e evitar duplicidade de presentes.
+</div>
+
+    <div class="section-title">Eletrodomésticos</div>
+
+    <div class="gift">
+      <img src="imagens/batedeiraphilco.jpg">
+      <div class="gift-content">
+        <h3>Batedeira</h3>
+        <p>Presente especificado de batedeira planetária preta Philco.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/sanduicheira.png">
+      <div class="gift-content">
+        <h3>Sanduicheira</h3>
+        <p>Presente especificado de sanduicheira preta, Philco.</p>
+      </div>
+    </div>
+
+<div class="gift">
+      <img src="imagens/micro-ondas.jpg">
+      <div class="gift-content">
+        <h3>Micro-ondas</h3>
+        <p>Presente especificado de micro-ondas compacto e espelhado Philco (pelo menos 30L).</p>
+      </div>
+    </div>
+
+<div class="gift">
+      <img src="imagens/forno.jpg">
+      <div class="gift-content">
+        <h3>Forno</h3>
+        <p>Presente especificado de forno elétrico para embutir espelhado.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/fogao.jpg">
+      <div class="gift-content">
+        <h3>Fogão</h3>
+        <p>Presente especificado de fogão cooktop 6 bocas, preto, Philco.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/filtrod-agua.jpg">
+      <div class="gift-content">
+        <h3>Filtro d'Água</h3>
+        <p>Presente especificado de filtro d'água compacto, preto, Soft.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/exaustor.png">
+      <div class="gift-content">
+        <h3>Exaustor (Sugar)</h3>
+        <p>Presente especificado de exaustor (sugar) compacto e preto.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/tv.png">
+      <div class="gift-content">
+        <h3>Televisão</h3>
+        <p>Presente especificado de televisão 75" (polegadas), Samsung ou LG.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/ventiladordemesa.jpg">
+      <div class="gift-content">
+        <h3>Ventilador de Mesa</h3>
+        <p>Presente especificado de ventilador de mesa preto, Philco.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/maquinadelavaroupas.jpg">
+      <div class="gift-content">
+        <h3>Máquina de Lavar Roupas</h3>
+        <p>Presente especificado de máquina de lavar roupas 15kg, branca, Electrolux.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/maquinadelavarloucas.jpg">
+      <div class="gift-content">
+        <h3>Máquina de Lavar Louças</h3>
+        <p>Presente especificado de máquina de lavar louças compacta, espelhada e/ou preta, Philco.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/cafeteiraeletrica.png">
+      <div class="gift-content">
+        <h3>Cafeteira Elétrica</h3>
+        <p>Presente especificado de cafeteira elétrica por cápsula preta.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/aspiradordepoeagua.jpg">
+      <div class="gift-content">
+        <h3>Aspirador de Pó</h3>
+        <p>Presente especificado de aspirador de pó e água preto, Electrolux.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/ferrodepassaroupasaseco.jpg">
+      <div class="gift-content">
+        <h3>Ferro de Passar Roupas Comum a Seco</h3>
+        <p>Presente especificado de ferro de passar roupas a seco, preto, BlackDecker.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/ferrodepassarroupasvertical.jpg">
+      <div class="gift-content">
+        <h3>Ferro de Passar Roupas Vertical a Vapor</h3>
+        <p>Presente especificado de ferro de passar roupas a vapor, vertical, preto.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Cozinha</div>
+
+    <div class="gift">
+      <img src="imagens/escorredordelouças.jpg">
+      <div class="gift-content">
+        <h3>Escorredor de Louças</h3>
+        <p>Presente especificado de escorredor de louças compacto, moderno e preto.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/panelapcafe.png">
+      <div class="gift-content">
+        <h3>Panela p/ Café</h3>
+        <p>Presente especificado de panela p/ café antiaderente, preta.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/pratossimples.jpg">
+      <div class="gift-content">
+        <h3>Pratos de Vidro Simples</h3>
+        <p>Presente especificado de kit de pratos de vidro simples.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/pratosrasos.jpg">
+      <div class="gift-content">
+        <h3>Pratos Rasos</h3>
+        <p>Presente especificado de kit de pratos rasos e brancos.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/kitxicara.jpg">
+      <div class="gift-content">
+        <h3>Kit de Xícaras</h3>
+        <p>Presente especificado de kit de xícaras brancas c/ pires.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/garrafadecafe.jpg">
+      <div class="gift-content">
+        <h3>Garrafa de Café</h3>
+        <p>Presente especificado de garrafa de café 1L, preta c/ cabo de madeira.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/jarradevidro.png">
+      <div class="gift-content">
+        <h3>Jarra de Vidro</h3>
+        <p>Presente especificado de jarra de vidro 2L.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/fruteira.jpg">
+      <div class="gift-content">
+        <h3>Fruteira de Vidro</h3>
+        <p>Presente especificado de fruteira de vidro p/ mesas.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/kitpeneira.png">
+      <div class="gift-content">
+        <h3>Peneira</h3>
+        <p>Presente especificado de kit peneira inox.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/colheresdeservir.png">
+      <div class="gift-content">
+        <h3>Colheres de Servir</h3>
+        <p>Presente especificado de kit colheres de servir inox (garfo, colher, escumadeira e concha).</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/kitformasdevidro.png">
+      <div class="gift-content">
+        <h3>Formas de Vidro (Travessas)</h3>
+        <p>Presente especificado de kit de formas de vidro (travessas).</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/formasinox.png">
+      <div class="gift-content">
+        <h3>Formas Inox</h3>
+        <p>Presente especificado de kit de formas inox.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/fundofalso.png">
+      <div class="gift-content">
+        <h3>Formas Inox de Fundo Falso</h3>
+        <p>Presente especificado de kit de formas inox de fundo falso.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/formassilicone.jpg">
+      <div class="gift-content">
+        <h3>Formas de Silicone p/ Air Fryer</h3>
+        <p>Presente especificado de kit de formas de silicone p/ air fryer.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/marmiteiras.jpeg">
+      <div class="gift-content">
+        <h3>Marmiteiras</h3>
+        <p>Presente especificado de kit de marmiteiras de vidro c/ tampa de vedação.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/potesplastico.png">
+      <div class="gift-content">
+        <h3>Potes de Plástico</h3>
+        <p>Presente especificado de kit de potes de plástico simples.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/tigelas.png">
+      <div class="gift-content">
+        <h3>Tigelas</h3>
+        <p>Presente especificado de kit de tigelas de plástico.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/bacias.png">
+      <div class="gift-content">
+        <h3>Bacias</h3>
+        <p>Presente especificado de kit de bacias.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Sala</div>
+
+    <div class="gift">
+      <img src="imagens/mesaredonda.png">
+      <div class="gift-content">
+        <h3>Mesa</h3>
+        <p>Presente especificado de mesa redonda c/ 4 cadeiras estofadas cor creme.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/prateleira.jpg">
+      <div class="gift-content">
+        <h3>Prateleira p/ Sapatos</h3>
+        <p>Presente especificado de prateleira p/ sapatos c/ 2 andares cor branca.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/cortinaslongas.jpg">
+      <div class="gift-content">
+        <h3>2 Cortinas Longas</h3>
+        <p>Presente especificado de 2 cortinas longas cor creme c/ blackout.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/cortinacurta.jpg">
+      <div class="gift-content">
+        <h3>1 Cortina Curta</h3>
+        <p>Presente especificado de 1 cortina curta cor creme sem blackout.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Banheiro</div>
+
+    <div class="gift">
+      <img src="imagens/utensiliosbanheiro.jpg">
+      <div class="gift-content">
+        <h3>Utensílios de Banheiro</h3>
+        <p>Presente especificado de kit de utensílios de banheiro (dispenser de sabão, recipientes brancos).</p>
+      </div>
+    </div>
+
+    <div class="section-title">Lavanderia</div>
+
+    <div class="gift">
+      <img src="imagens/cesto.jpg">
+      <div class="gift-content">
+        <h3>Cesto p/ Roupas Sujas</h3>
+        <p>Presente especificado de cesto p/ roupas sujas preto e com tampa.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/varal.jpg">
+      <div class="gift-content">
+        <h3>Varal de Chão p/ Roupas</h3>
+        <p>Presente especificado de varal de chão p/ roupas cor branca.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/tabuadepassaroupas.png">
+      <div class="gift-content">
+        <h3>Tábua de Passar Roupas</h3>
+        <p>Presente especificado de tábua de passar roupas cor branca.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/kitlavanderia.png">
+      <div class="gift-content">
+        <h3>Acessórios de Limpeza</h3>
+        <p>Presente especificado de acessórios de limpeza cor preta (vassoura, rodo e pá).</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/kitbaldes.png">
+      <div class="gift-content">
+        <h3>Kit de Baldes</h3>
+        <p>Presente especificado de kit de baldes cor preta.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Tapeçaria</div>
+
+    <div class="gift">
+      <img src="imagens/tapetefelpudo.jpg">
+      <div class="gift-content">
+        <h3>Tapete p/ Sala</h3>
+        <p>Presente especificado de tapete médio felpudo cor creme.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/jogodecozinha.jpg">
+      <div class="gift-content">
+        <h3>Jogo de Cozinha</h3>
+        <p>Presente especificado de jogo de cozinha cor creme.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/jogodebanheiro.png">
+      <div class="gift-content">
+        <h3>Jogo de Banheiro</h3>
+        <p>Presente especificado de jogo de banheiro cor creme.</p>
+      </div>
+    </div>
+
+    <div class="gift">
+      <img src="imagens/avulsos.jpeg">
+      <div class="gift-content">
+        <h3>Tapetes Avulsos</h3>
+        <p>Presente especificado de tapetes avulsos de cores neutras.</p>
+      </div>
+      </div>
+
+<div class="divider-with-text"><span>Obrigado!</span></div>
+
+<p style="max-width: 600px; margin: 20px auto 0 auto; text-align: center; font-size: 1.05em; color: #6b5c4e; opacity: 0.5; line-height: 1.8em;">
+  Que cada pedacinho dessa nova etapa seja regado com afeto, e que o amor de quem caminha conosco continue sendo o que mais preenche nosso lar. <br><br>
+  Obrigado por estar presente em nossas vidas, por cada gesto e cada lembrança compartilhada. Tudo isso é mais do que presente: é memória viva no nosso coração. <br><br>
+  Com carinho, <br><strong>João Vitor & Geovana Vitória</strong>
+</p>
+
+<div style="text-align: center; margin-top: 40px;">
+  <img src="site/deco2.png" alt="Decoração 2" style="width: 250px;">
+</div>
+</div>
+
+<footer>
+    <div class="info-column">
+      <strong>Noivos:</strong><br>
+      João Vitor Dourado Matos<br>
+      Geovana Vitória Maciel Mendes<br>
+      <br>
+      <strong>Contato:</strong><br>
+      (61) 9 9291-4441<br>
+      douradomatosj@email.com<br>
+      (61) 9 9597-0145<br>
+      geovic2003@email.com
+    </div>
+
+    <div class="info-column">
+      <strong>Desenvolvimento:</strong><br>
+      Athus Maciel<br>
+      athusandremm@gmail.com
+      <br>
+      <br>
+      <strong>Hospedagem:</strong><br class="mobile-hide">
+      GitHub (github.com)
+    </div>
+
+    <div class="info-column">
+      <strong>Termos:</strong><br>
+      © 2025 Athus Maciel<br>
+      Conteúdo elaborado exclusivamente para fins<br>
+      pessoais e familiares.
+    </div>
+  </footer>
+
+</body>
+</html>
